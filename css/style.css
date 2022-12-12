@@ -30,4 +30,14 @@ body {
 
 .product-card .product-info {
   padding: 30px;
+  position: relative;
+}
+
+.product-card svg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px;
+  height: 30px;
+  fill: white;
 }
