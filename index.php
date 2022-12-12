@@ -19,7 +19,6 @@ $products = [
   
   new Accessory(uniqid(), "Cuccia", "PET AROUND YOU", $dog, 107.00, "Resina termoplastica", 45)
 ];
-var_dump($products);
 
 ?>
 
@@ -33,6 +32,41 @@ var_dump($products);
   <title>Document</title>
 </head>
 <body>
-  
+  <div class="product-area">
+    <?php foreach ($products as $product) : ?>
+      <div class="product-card">
+        <img src="<?php echo $product->getImage() ?>" alt="<?php echo $product->name ?>">
+        <div class="product-info">
+          <span><?php echo $product->name ?></span>
+          <span>Brand: <?php echo $product->brand ?></span>
+          <span>Prezzo: €<?php echo $product->price ?></span>
+          <?php if(get_class($product) == "Food") :?>
+
+            <span>Food</span>
+            <span>Peso: <?php echo $product->weight ?>kg</span>
+            <span>Ingredienti: 
+            <?php
+              $ingredientList = "";
+              foreach ($product->ingredients as $ingredient){
+                $ingredientList .= $ingredient.", ";
+              }
+              $ingredientList = substr($ingredientList, 0, -2);
+              echo $ingredientList;
+            ?></span>
+            <span>Gusto: <?php echo $product->taste ?></span>
+
+          <?php elseif(get_class($product) == "Toy") : ?>
+            <span>Toy</span>
+            <span><?php echo $product->feature ?></span>
+            <span>Dimension: €<?php echo $product->size ?></span>
+          <?php else : ?>
+            <span>Accessory</span>
+            <span>Materiale: <?php echo $product->material ?></span>
+            <span>Dimension: <?php echo $product->size ?></span>
+          <?php endif; ?>
+        </div>
+      </div>
+    <?php endforeach; ?>
+  </div>
 </body>
 </html>

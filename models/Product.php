@@ -24,9 +24,9 @@ class Product
   }
 
   public function getImage(){
-    $placeholder = 'https://cringemdb.com/img/movie-poster-placeholder.png';
+    $placeholder = 'https://img.myloview.com/stickers/paw-icon-vector-paw-print-icon-700-170141501.jpg';
 
-    if ($this->poster != null) {
+    if ($this->image) {
         return $this->image;
     }
 
