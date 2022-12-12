@@ -64,12 +64,12 @@ $products = [
             <?php elseif(get_class($product) == "Toy") : ?>
             
             <span><?php echo $product->feature ?></span>
-            <span>Dimension: €<?php echo $product->size ?></span>
+            <span>Dimensione: <?php echo $product->size ?>cm</span>
             
             <?php else : ?>
               
               <span>Materiale: <?php echo $product->material ?></span>
-              <span>Dimension: <?php echo $product->size ?></span>
+              <span>Dimensione: <?php echo $product->size ?>cm</span>
               
             <?php endif; ?>
           </div>
